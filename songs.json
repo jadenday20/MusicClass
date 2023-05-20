@@ -4,7 +4,8 @@
     "composer": "Alan Menkin",
     "aranger": "Jaden Day",
     "lyricist": "David Zippel",
-    "year": "1997"
+    "year": "1997",
+    "key": "D"
   },
   {
     "name": "Fall is coming",
@@ -12,7 +13,8 @@
     "composer": "Jaden Day",
     "aranger": "",
     "lyricist": "",
-    "year": "2022"
+    "year": "2022",
+    "key": "D"
   },
   {
     "name": "A Whole New World",
@@ -20,5 +22,6 @@
     "composer": "Alan Menkin",
     "aranger": "",
     "lyricist": "Tim Rice",
-    "year": "1992"
+    "year": "1992",
+    "key":"C"
   }]
