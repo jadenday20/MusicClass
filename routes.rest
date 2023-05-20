@@ -1,34 +1,73 @@
-### GET ALL SONGS
+### GET ALL SONGS RENDER
 GET https://music-eqw2.onrender.com/songs/
 
-### GET ONE SONG
+### GET ONE SONG RENDER
+GET https://music-eqw2.onrender.com/songs/64690d4135aaf654dd5ee73d
+
+### CREATE SONG RENDER
+POST http://music-eqw2.onrender.com/songs/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Go the Distance 2",
+    "featuredIn": "Hercules",
+    "composer": "Alan Menkin",
+    "aranger": "Jaden Day",
+    "lyricist": "David Zippel",
+    "year": "1997",
+    "key": "D"
+  }
+
+### DELETE SONG RENDER
+DELETE http://music-eqw2.onrender.com/songs/6456dbe2d5e3521294d62bb6 HTTP/1.1
+
+### PUT SONG RENDER
+PUT http://music-eqw2.onrender.com/songs/6456dc0bd5e3521294d62bb7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Go the Distance",
+    "featuredIn": "Hercules",
+    "composer": "Alan Menkin",
+    "aranger": "Jaden Day",
+    "lyricist": "David Zippel",
+    "year": "1997",
+    "key": "D"
+}
+
+### GET ALL SONGS LOCALHOST
+GET https://localhost:8080/songs/
+
+### GET ONE SONG LOCALHOST
 GET http://localhost:8080/songs/64690d4135aaf654dd5ee73d 
 
-### GET ONE SONG
-GET https://music-eqw2.onrender.com/songs/64690d4135aaf654dd5ee73d
-### CREATE SONG
+### CREATE SONG LOCALHOST
 POST http://localhost:8080/songs/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Bob",
-    "lastName": "Day",
-    "email": "fake@gmail.com",
-    "favoriteColor": "Green",
-    "birthday": "07/21/2000"
-}
+    "name": "Go the Distance 2",
+    "featuredIn": "Hercules",
+    "composer": "Alan Menkin",
+    "aranger": "Jaden Day",
+    "lyricist": "David Zippel",
+    "year": "1997",
+    "key": "D"
+  }
 
-### DELETE SONG
+### DELETE SONG LOCALHOST
 DELETE http://localhost:8080/songs/6456dbe2d5e3521294d62bb6 HTTP/1.1
 
-### PUT SONG
+### PUT SONG LOCALHOST
 PUT http://localhost:8080/songs/6456dc0bd5e3521294d62bb7 HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Jason",
-    "lastName": "Day",
-    "email": "fakemail@outlook.com",
-    "favoriteColor": "Blue",
-    "birthday": "10/10/2005"
+    "name": "Go the Distance",
+    "featuredIn": "Hercules",
+    "composer": "Alan Menkin",
+    "aranger": "Jaden Day",
+    "lyricist": "David Zippel",
+    "year": "1997",
+    "key": "D"
 }

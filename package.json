@@ -6,6 +6,7 @@
   "author": "Jaden Day",
   "license": "ISC",
   "description": "",
+  "homepage": "https://github.com/jadenday20/MusicClass#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
