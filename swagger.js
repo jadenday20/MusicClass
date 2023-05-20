@@ -17,3 +17,4 @@ const endpointsFiles = ["./routes/index.js"];
    such as index.js, app.js, routes.js, ... */
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
+//
