@@ -3,9 +3,9 @@ const router = express.Router();
 
 const songsController = require("../controllers/songs");
 
-router.get("/", songsController.getAll);
+router.get("/", songsController.getAllSongs);
 
-router.get("/:id", songsController.getSingle);
+router.get("/:id", songsController.getSingleSong);
 
 router.post("/", songsController.createSong);
 

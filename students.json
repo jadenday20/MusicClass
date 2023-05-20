@@ -1,0 +1,12 @@
+[{
+    "name": "Peter",
+    "instruments": ["Violin", "Piano"]
+  },
+  {
+    "name": "Elisha",
+    "instruments": ["Violin", "Piano", "Organ"]
+  },
+  {
+    "name": "Marjean",
+    "instruments": ["Violin"]
+  }]

@@ -1,7 +1,7 @@
 const mongodb = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
 
-const getAll = async (req, res, next) => {
+const getAllSongs = async (req, res, next) => {
   const result = await mongodb
     .getDb()
     .db("MusicClass")
@@ -13,7 +13,7 @@ const getAll = async (req, res, next) => {
   });
 };
 
-const getSingle = async (req, res, next) => {
+const getSingleSong = async (req, res, next) => {
   const songId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
@@ -95,8 +95,8 @@ const deleteSong = async (req, res) => {
 };
 
 module.exports = {
-  getAll,
-  getSingle,
+  getAllSongs,
+  getSingleSong,
   createSong,
   updateSong,
   deleteSong,
