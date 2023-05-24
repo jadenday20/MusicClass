@@ -1,29 +1,64 @@
 const mongodb = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
 
-const getAllStudents = async (req, res, next) => {
-  const result = await mongodb
-    .getDb()
-    .db("MusicClass")
-    .collection("Students")
-    .find();
-  result.toArray().then((lists) => {
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).json(lists);
-  });
+const getAllStudents = async (req, res) => {
+  try {
+    const result = await mongodb
+      .getDb()
+      .db("MusicClass")
+      .collection("Students")
+      .find();
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists);
+    });
+  } catch (err) {
+    res.status(400).json({ message: err });
+  }
+  // mongodb
+  //   .getDb()
+  //   .db("MusicClass")
+  //   .collection("Students")
+  //   .find()
+  //   .toArray((err, lists) => {
+  //     if (err) {
+  //       res.status(400).json({ message: err });
+  //     }
+  //     res.setHeader("Content-Type", "application/json");
+  //     res.status(200).json(lists);
+  //   });
 };
 
-const getSingleStudent = async (req, res, next) => {
+const getSingleStudent = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid student id to find a contact.");
+  }
   const studentId = new ObjectId(req.params.id);
-  const result = await mongodb
-    .getDb()
-    .db("MusicClass")
-    .collection("Students")
-    .find({ _id: studentId });
-  result.toArray().then((lists) => {
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).json(lists[0]);
-  });
+  try {
+    const result = await mongodb
+      .getDb()
+      .db("MusicClass")
+      .collection("Students")
+      .find({ _id: studentId });
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists[0]);
+    });
+  } catch {
+    res.status(400).json({ message: err });
+  }
+  // mongodb
+  //   .getDb()
+  //   .db("MusicClass")
+  //   .collection("Students")
+  //   .find({ _id: studentId })
+  //   .toArray((err, result) => {
+  //     if (err) {
+  //       res.status(400).json({ message: err });
+  //     }
+  //     res.setHeader("Content-Type", "application/json");
+  //     res.status(200).json(lists[0]);
+  //   });
 };
 
 const createStudent = async (req, res) => {
@@ -48,6 +83,9 @@ const createStudent = async (req, res) => {
 };
 
 const updateStudent = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid student id to find a contact.");
+  }
   const studentId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const student = {
@@ -72,6 +110,9 @@ const updateStudent = async (req, res) => {
 };
 
 const deleteStudent = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid student id to find a contact.");
+  }
   const studentId = new ObjectId(req.params.id);
   const response = await mongodb
     .getDb()

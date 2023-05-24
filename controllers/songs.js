@@ -1,29 +1,66 @@
 const mongodb = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
 
-const getAllSongs = async (req, res, next) => {
-  const result = await mongodb
-    .getDb()
-    .db("MusicClass")
-    .collection("Songs")
-    .find();
-  result.toArray().then((lists) => {
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).json(lists);
-  });
+const getAllSongs = async (req, res) => {
+  try {
+    const result = await mongodb
+      .getDb()
+      .db("MusicClass")
+      .collection("Songs")
+      .find();
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists);
+    });
+  } catch (err) {
+    res.status(400).json({ message: err });
+  }
+  // mongodb
+  //   .getDb()
+  //   .db("MusicClass")
+  //   .collection("Songs")
+  //   .find()
+  //   .toArray((err, lists) => {
+  //     console.log("problem");
+  //     if (err) {
+  //       res.status(400).json({ message: err });
+  //     }
+  //     res.setHeader("Content-Type", "application/json");
+  //     res.status(200).json(lists);
+  //   });
 };
 
-const getSingleSong = async (req, res, next) => {
+const getSingleSong = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid song id to find a contact.");
+  }
   const songId = new ObjectId(req.params.id);
-  const result = await mongodb
-    .getDb()
-    .db("MusicClass")
-    .collection("Songs")
-    .find({ _id: songId });
-  result.toArray().then((lists) => {
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).json(lists[0]);
-  });
+  try {
+    const result = await mongodb
+      .getDb()
+      .db("MusicClass")
+      .collection("Songs")
+      .find({ _id: songId });
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists[0]);
+    });
+  } catch {
+    res.status(400).json({ message: err });
+  }
+  // mongodb
+  //   .getDb()
+  //   .db("MusicClass")
+  //   .collection("Songs")
+  //   .find({ _id: songId })
+  //   .toArray((err, result) => {
+  //     if (err) {
+  //       res.status(400).json({ message: err });
+  //     }
+
+  //     res.setHeader("Content-Type", "application/json");
+  //     res.status(200).json(lists[0]);
+  //   });
 };
 
 const createSong = async (req, res) => {
@@ -51,6 +88,9 @@ const createSong = async (req, res) => {
 };
 
 const updateSong = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid song id to find a contact.");
+  }
   const songId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const song = {
@@ -78,6 +118,9 @@ const updateSong = async (req, res) => {
 };
 
 const deleteSong = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid song id to find a contact.");
+  }
   const songId = new ObjectId(req.params.id);
   const response = await mongodb
     .getDb()
