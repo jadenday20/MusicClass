@@ -5,10 +5,10 @@
     "description": "Return a collection of songs",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://musicclass.onrender.com/",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/songs/": {
@@ -141,6 +141,9 @@
           "204": {
             "description": "No Content"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -271,6 +274,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "412": {
             "description": "Precondition Failed"

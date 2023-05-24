@@ -5,8 +5,8 @@ const doc = {
     title: "Contacts",
     description: "Return a collection of songs",
   },
-  host: "localhost:8080",
-  schemes: ["http"],
+  host: "https://musicclass.onrender.com/",
+  schemes: ["https"],
 };
 
 const outputFile = "./swagger-output.json";
