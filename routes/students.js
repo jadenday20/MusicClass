@@ -3,15 +3,38 @@ const router = express.Router();
 
 const studentsController = require("../controllers/students");
 const validation = require("../middleware/validate");
+const authenticated = (req, res, next) => {
+  try {
+    if (req.session.token) {
+      next();
+    } else {
+      throw new Error("Please Log In");
+    }
+  } catch (err) {
+    res.status(400).json({
+      message: err.message,
+    });
+  }
+};
 
 router.get("/", studentsController.getAllStudents);
 
 router.get("/:id", studentsController.getSingleStudent);
 
-router.post("/", validation.saveStudent, studentsController.createStudent);
+router.post(
+  "/",
+  authenticated,
+  validation.saveStudent,
+  studentsController.createStudent
+);
 
-router.put("/:id", validation.saveStudent, studentsController.updateStudent);
+router.put(
+  "/:id",
+  authenticated,
+  validation.saveStudent,
+  studentsController.updateStudent
+);
 
-router.delete("/:id", studentsController.deleteStudent);
+router.delete("/:id", authenticated, studentsController.deleteStudent);
 
 module.exports = router;

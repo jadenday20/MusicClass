@@ -45,7 +45,7 @@
                 "composer": {
                   "example": "any"
                 },
-                "aranger": {
+                "arranger": {
                   "example": "any"
                 },
                 "lyricist": {
@@ -124,7 +124,7 @@
                 "composer": {
                   "example": "any"
                 },
-                "aranger": {
+                "arranger": {
                   "example": "any"
                 },
                 "lyricist": {
@@ -216,6 +216,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "412": {
             "description": "Precondition Failed"
