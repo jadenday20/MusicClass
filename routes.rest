@@ -65,9 +65,6 @@ DELETE https://musicclass.onrender.com/students/64692e8dc827416329e48baa HTTP/1.
 ### GET ALL SONGS LOCALHOST
 GET http://localhost:8080/songs/
 
-### TEST THE AUTH
-GET http://localhost:8080/auth/
-
 ### GET ONE SONG LOCALHOST
 GET http://localhost:8080/songs/64690d4135aaf654dd5ee73d 
 
