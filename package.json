@@ -8,6 +8,7 @@
   "description": "",
   "homepage": "https://github.com/jadenday20/MusicClass#readme",
   "dependencies": {
+    "axios": "^1.4.0",
     "body-parser": "^1.20.2",
     "connect-sqlite3": "^0.9.13",
     "dotenv": "^16.0.3",
@@ -26,6 +27,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "swagger-autogen": "node ./swagger.js"
+    "swagger": "node ./swagger.js"
   }
 }

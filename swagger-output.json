@@ -5,7 +5,7 @@
     "description": "Return a collection of songs",
     "version": "1.0.0"
   },
-  "host": "https://musicclass.onrender.com/",
+  "host": "musicclass.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -64,6 +64,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "412": {
             "description": "Precondition Failed"
@@ -307,6 +310,27 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/auth/login/federated/google": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/login": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/oauth2/redirect/google": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
       }
     }
   }

@@ -5,7 +5,9 @@ const doc = {
     title: "Contacts",
     description: "Return a collection of songs",
   },
-  host: "https://musicclass.onrender.com/",
+  // host: "localhost:8080",
+  // schemes: ["http"],
+  host: "musicclass.onrender.com",
   schemes: ["https"],
 };
 
