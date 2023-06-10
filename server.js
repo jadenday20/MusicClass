@@ -23,6 +23,10 @@ app.get("/login", (req, res) => {
   );
 });
 
+app.get("/", (req, res) => {
+  res.redirect("/api-docs");
+});
+
 app.get("/loggedin", (req, res) => {
   const { code } = req.query;
   const body = {

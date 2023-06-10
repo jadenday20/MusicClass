@@ -3,8 +3,7 @@ const swaggerAutogen = require("swagger-autogen")();
 const doc = {
   info: {
     title: "MusicClass",
-    description:
-      "Returns a collection of Songs and a collection of Students\nLogin: musicclass.onrender.com/login\nLogout: musicclass.onrender.com/logout",
+    description: `Returns a collection of Songs and a collection of Students\n<hr>\n<p>You'll need to login with GitHub in order to use this api</p>\n\n<a href="../login"><strong>Login</strong><a/>\n<a href="../logout"><strong>Logout</strong></a>`,
   },
   // host: "localhost:8080",
   // schemes: ["http"],
