@@ -1,8 +1,11 @@
 const express = require("express");
-const routes = express.Router();
+const router = express.Router();
+console.log("Hi");
 
-routes
+router.post("hello");
+router
+  .use("/", require("./home"))
   .use("/songs", require("./songs"))
   .use("/students", require("./students"));
 
-module.exports = routes;
+module.exports = router;
