@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts",
-    "description": "Return a collection of songs",
+    "title": "MusicClass",
+    "description": "Returns a collection of Songs and a collection of Students\nLogin: musicclass.onrender.com/login\nLogout: musicclass.onrender.com/logout",
     "version": "1.0.0"
   },
   "host": "musicclass.onrender.com",
@@ -11,6 +11,17 @@
     "https"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/songs/": {
       "get": {
         "description": "",

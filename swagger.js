@@ -2,8 +2,9 @@ const swaggerAutogen = require("swagger-autogen")();
 
 const doc = {
   info: {
-    title: "Contacts",
-    description: "Return a collection of songs",
+    title: "MusicClass",
+    description:
+      "Returns a collection of Songs and a collection of Students\nLogin: musicclass.onrender.com/login\nLogout: musicclass.onrender.com/logout",
   },
   // host: "localhost:8080",
   // schemes: ["http"],
