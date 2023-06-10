@@ -1,6 +1,6 @@
 const homeRoute = (req, res) => {
   res.send(
-    "Welcome to MusicClass!\n\nPlease add '/api-docs' to the url to documentation for this api."
+    "Welcome to MusicClass!\n\nPlease head to https://musicclass.onrender.com/api-docs for documentation for this api."
   );
 };
 
