@@ -1,12 +1,30 @@
 [{
     "name": "Peter",
-    "instruments": ["Violin", "Piano"]
+    "practice": [{
+      "date": "06/21/23",
+      "minutes": "30"
+  },{
+    "date": "06/22/23",
+    "minutes": "30"
+}]
   },
   {
     "name": "Elisha",
-    "instruments": ["Violin", "Piano", "Organ"]
+    "practice": [{
+      "date": "06/21/23",
+      "minutes": "30"
+  },{
+    "date": "06/22/23",
+    "minutes": "30"
+}]
   },
   {
     "name": "Marjean",
-    "instruments": ["Violin"]
+    "practice": [{
+      "date": "06/21/23",
+      "minutes": "30"
+  },{
+    "date": "06/22/23",
+    "minutes": "30"
+}]
   }]
