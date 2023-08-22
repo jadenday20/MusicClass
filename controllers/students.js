@@ -64,7 +64,7 @@ const getSingleStudent = async (req, res) => {
 const createStudent = async (req, res) => {
   const student = {
     name: req.body.name,
-    instruments: req.body.instruments,
+    practice: req.body.practice,
   };
   const response = await mongodb
     .getDb()
@@ -90,7 +90,7 @@ const updateStudent = async (req, res) => {
   // be aware of updateOne if you only want to update specific fields
   const student = {
     name: req.body.name,
-    instruments: req.body.instruments,
+    practice: req.body.practice,
   };
   const response = await mongodb
     .getDb()
