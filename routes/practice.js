@@ -24,3 +24,5 @@ router.put(
   validation.savePractice,
   practiceController.addPractice
 );
+
+module.exports = router;
