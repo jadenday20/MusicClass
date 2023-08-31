@@ -43,7 +43,7 @@ const saveSong = async (req, res, next) => {
 
 const savePractice = async (req, res, next) => {
   const validationRule = {
-    name: "required|numeric",
+    practice: "required|numeric",
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
