@@ -27,10 +27,7 @@ const addPractice = async (req, res) => {
   }
   const studentId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
-  const student = {
-    name: req.body.name,
-    practice: req.body.practice,
-  };
+  const minutes = req.body.practice;
   const response = await mongodb
     .getDb()
     .db("MusicClass")
@@ -39,7 +36,7 @@ const addPractice = async (req, res) => {
       { _id: studentId },
       {
         $set: {
-          practice: { "8/21/2023": 60 },
+          practice: { "8/21/2023": minutes },
         },
       }
     );
