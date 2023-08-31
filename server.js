@@ -8,6 +8,7 @@ const session = require("express-session");
 
 const port = process.env.PORT || 8080;
 const app = express();
+
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(
   session({
@@ -17,37 +18,37 @@ app.use(
   })
 );
 
-app.get("/login", (req, res) => {
-  res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&prompt=consent`
-  );
-});
+// app.get("/login", (req, res) => {
+//   res.redirect(
+//     `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&prompt=consent`
+//   );
+// });
 
-app.get("/", (req, res) => {
-  res.redirect("/api-docs");
-});
+// app.get("/", (req, res) => {
+//   res.redirect("/api-docs");
+// });
 
-app.get("/loggedin", (req, res) => {
-  const { code } = req.query;
-  const body = {
-    client_id: process.env.GITHUB_CLIENT_ID,
-    client_secret: process.env.GITHUB_CLIENT_SECRET,
-    code,
-  };
-  const opts = { headers: { accept: "application/json" } };
-  axios
-    .post("https://github.com/login/oauth/access_token", body, opts)
-    .then((_res) => {
-      req.session.token = _res.data.access_token;
-      res.redirect("/api-docs");
-    })
-    .catch((err) => res.status(500).json({ err: err.message }));
-});
+// app.get("/loggedin", (req, res) => {
+//   const { code } = req.query;
+//   const body = {
+//     client_id: process.env.GITHUB_CLIENT_ID,
+//     client_secret: process.env.GITHUB_CLIENT_SECRET,
+//     code,
+//   };
+//   const opts = { headers: { accept: "application/json" } };
+//   axios
+//     .post("https://github.com/login/oauth/access_token", body, opts)
+//     .then((_res) => {
+//       req.session.token = _res.data.access_token;
+//       res.redirect("/api-docs");
+//     })
+//     .catch((err) => res.status(500).json({ err: err.message }));
+// });
 
-app.get("/logout", (req, res) => {
-  req.session.token = null;
-  res.redirect("/api-docs");
-});
+// app.get("/logout", (req, res) => {
+//   req.session.token = null;
+//   res.redirect("/api-docs");
+// });
 
 app
   .use(bodyParser.json()) //makes it so I can use less code by using req, next, and things like that
@@ -80,4 +81,24 @@ mongodb.initDb((err, mongodb) => {
     app.listen(port);
     console.log(`Connected to DB and listening on ${port}`);
   }
+});
+
+//Auth
+const { auth } = require("express-openid-connect");
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: "a long, randomly-generated string stored in env",
+  baseURL: "https://jadenday20.github.io",
+  clientID: "LNrndgBMIhELwXdi6AYf0Kw01zB4Runy",
+  issuerBaseURL: "https://dev-en6sa3uv8o65pasm.us.auth0.com",
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get("/", (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
 });
