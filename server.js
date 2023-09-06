@@ -12,7 +12,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://jadenday20.github.io/",
+  "https://jadenday20.github.io",
 ];
 
 const corsOptions = {
