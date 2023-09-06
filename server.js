@@ -7,6 +7,9 @@ const axios = require("axios");
 const session = require("express-session");
 const cors = require("cors");
 
+const port = process.env.PORT || 8080;
+const app = express();
+
 const allowedOrigins = [
   "http://localhost:5173",
   "https://jadenday20.github.io/vio-learn/",
@@ -17,9 +20,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-const port = process.env.PORT || 8080;
-const app = express();
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(
