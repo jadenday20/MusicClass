@@ -36,8 +36,8 @@ const addPractice = async (req, res) => {
       { _id: studentId },
       {
         $set: {
-          "practice.8/21/2023": minutes,
-          // practice: { "8/21/2023": minutes },
+          // "practice.8/21/2023": minutes,
+          practice: { "8/21/2023": minutes },
         },
       }
     );
