@@ -355,6 +355,9 @@
               "properties": {
                 "practice": {
                   "example": "any"
+                },
+                "date": {
+                  "example": "any"
                 }
               }
             }
