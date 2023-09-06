@@ -19,9 +19,10 @@ const authenticated = (req, res, next) => {
 };
 
 router.get("/:id", practiceController.getAllPractice);
+
 router.put(
   "/:id",
-  authenticated,
+  // authenticated,
   validation.savePractice,
   practiceController.addPractice
 );
