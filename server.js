@@ -89,9 +89,9 @@ const { auth } = require("express-openid-connect");
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: "a long, randomly-generated string stored in env",
+  secret: "XR6Qr5Ur3WCau5pYy3axn0wLlXwZi-bEeXh21YWr4KH25DEmda9m-0pWrq5L_pAh",
   baseURL: "https://jadenday20.github.io/vio-learn",
-  clientID: "LNrndgBMIhELwXdi6AYf0Kw01zB4Runy",
+  clientID: "A21re41GBNQqxCpvAYpOrvtDz7bwLWLR",
   issuerBaseURL: "https://dev-en6sa3uv8o65pasm.us.auth0.com",
 };
 
